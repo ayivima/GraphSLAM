@@ -1,5 +1,8 @@
-from math import cos, sin, pi
 import random
+
+import numpy
+from numpy import cos, pi, sin, zeros
+from numpy.linalg import inv
 
 
 class Robot:
@@ -9,7 +12,8 @@ class Robot:
         environment,
         sense_range = 30.0,
         motion_noise = 1.0,
-        measurement_noise = 1.0
+        measurement_noise = 1.0,
+        timesteps=20
     ):
         self.environment = environment
         self.sense_range = sense_range
@@ -17,7 +21,28 @@ class Robot:
         self.y = self.environment.height / 2.0
         self.motion_noise = motion_noise
         self.measurement_noise = measurement_noise
+        self.timesteps = timesteps
+        
+        self._omega_xi_init()
+    
+    def __repr__(self):
+        return 'Robot'
+    
+    def _omega_xi_init(self):
+        """Initializes Omega and Xi for calculation of Mu"""
+        
+        landmark_count = len(self.environment.landmarks)
+        rows = cols = 2 * (self.timesteps + landmark_count)
 
+        omega = zeros((rows, cols))
+        xi = zeros((rows, 1))
+
+        omega[0, 0] = omega[1, 1] = 1
+        xi[0] = self.x
+        xi[1] = self.y
+        
+        self.omega, self.xi = omega, xi
+    
     def change_env(self, environment):
         """Places robot in a new environment"""
 
@@ -68,7 +93,7 @@ class Robot:
             return False
 
     def navigate(self, timesteps, stepdist):
-        """Moves robot around to map its assigned environment
+        """Moves robot around to map its assigned environment.
 
         Arguments
         ---------
@@ -77,7 +102,7 @@ class Robot:
         """
 
         def dist_xy():
-            # generate a random angle of orientation,
+            # generate a random angle of orientation(theta),
             # and calculate x and y coordinates for next move
             theta = lambda: random.random() * 2.0 * pi
             return (
@@ -96,7 +121,7 @@ class Robot:
             # set a random theta
             dx, dy = dist_xy()
 
-            for timestep in range(timesteps-1):
+            for timestep in range(self.timesteps-1):
 
                 # collect sensor measurements
                 sensed_landmarks = self.sense()
@@ -146,6 +171,3 @@ class Robot:
                 measurements.append([index, xdist, ydist])
 
         return measurements
-    
-    def __repr__(self):
-        return 'Robot'
