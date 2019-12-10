@@ -1,8 +1,16 @@
+"""
+Implements an autonomous robot class, capable of sensing obstacles 
+navigation in a 2D virtual environment.
+"""
+
 import random
 
 import numpy
 from numpy import cos, sin, pi, matrix, zeros
 from numpy.linalg import inv
+
+
+__author__ = "Victor Mawusi Ayi <ayivima@hotmail.com>"
 
 
 class Robot:
@@ -17,8 +25,8 @@ class Robot:
     ):
         self.environment = environment
         self.sense_range = sense_range
-        self.x = self.environment.width / 2.0
-        self.y = self.environment.height / 2.0
+        self.x = random.random() * self.environment.width
+        self.y = random.random() * self.environment.height
         self.motion_noise = motion_noise
         self.sensor_noise = sensor_noise
         self.timesteps = timesteps
@@ -68,9 +76,8 @@ class Robot:
                       
                       NB. A given measurement is from a gaussian distribution 
                       which peaks at values close to actual.  
-                      
-        
         """
+        
         for tsindex1, tsindex2, dvalue in zip(tsids1, tsids2, dvalues):
             self.xi[tsindex1] += dvalue * noisefactor
             self.xi[tsindex2] -= dvalue * noisefactor
