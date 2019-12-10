@@ -4,7 +4,7 @@
 
 This project is a python implementation of Graph Simultaneous Localization and Mapping(SLAM). It is inspired by my final project work of the Computer Vision Nanodegree, and is aimed at further exploration of the utility of SLAM for robotic navigation and mapping.
 
-## Sample Generated Navigation Maps of A Robot using SLAM
+## Select Navigation Maps of A Robot using this project's SLAM implementation
 
 ##### Navigation Scenario 1
 
