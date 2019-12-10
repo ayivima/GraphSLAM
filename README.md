@@ -6,6 +6,8 @@ This project is a python implementation of Graph Simultaneous Localization and M
 
 ## Select Navigation Maps of A Robot using this project's SLAM implementation
 
+In the maps below, a robot moves around its environment while preventing itself from crashing into landmarks or obstacles. The robot is represented as the red triangle, landmarks are represented by blue circles, and the path of the robot is represented as a gray line.
+
 ##### Navigation Scenario 1
 
 ![](https://raw.githubusercontent.com/ayivima/GraphSLAM/master/images/SLAM16.png)
