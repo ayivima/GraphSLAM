@@ -1,13 +1,19 @@
 # GraphSLAM
 
-This project is a python implementation of Graph Simultaneous Localization and Mapping(SLAM). Inspired by the final project work of the Computer Vision Nanodegree, this project is aimed at further exploration of the utility of SLAM for robotic navigation.
+###### Author: Victor Mawusi Ayi
+
+This project is a python implementation of Graph Simultaneous Localization and Mapping(SLAM). It is inspired by my final project work of the Computer Vision Nanodegree, and is aimed at further exploration of the utility of SLAM for robotic navigation and mapping.
 
 ## Sample Generated Navigation Maps of A Robot using SLAM
 
 ##### Navigation Scenario 1
 
-![](https://raw.githubusercontent.com/ayivima/GraphSLAM/master/images/SLAM14.png)
+![](https://raw.githubusercontent.com/ayivima/GraphSLAM/master/images/SLAM16.png)
 
 ##### Navigation Scenario 2
+
+![](https://raw.githubusercontent.com/ayivima/GraphSLAM/master/images/SLAM14.png)
+
+##### Navigation Scenario 3
 
 ![](https://raw.githubusercontent.com/ayivima/GraphSLAM/master/images/SLAM13.png)
