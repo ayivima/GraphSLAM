@@ -1,8 +1,13 @@
+"""
+Implements an Environment class which generates 2D environments with landmarks (or obstacles).
+"""
 
-__author__ = "Victor Mawusi Ayi <ayivima@hotmail.com>"
 
 import math
 import random
+
+
+__author__ = "Victor Mawusi Ayi <ayivima@hotmail.com>"
 
 
 class Environment():
