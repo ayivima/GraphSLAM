@@ -91,8 +91,8 @@ class Robot:
         """Places robot in a new environment"""
 
         self.environment = environment
-        self.x = self.environment.width / 2.0
-        self.y = self.environment.height / 2.0
+        self.x = random.random() * self.environment.width
+        self.y = random.random() * self.environment.height
     
     def getnoise(self, noise_threshold, limiter=2.0, epsilon=1.0):
         """Calculates and returns random noise based on a set threshold.
