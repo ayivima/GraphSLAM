@@ -10,7 +10,7 @@ import random
 __author__ = "Victor Mawusi Ayi <ayivima@hotmail.com>"
 
 
-class Environment():
+class Environment:
 
     def __init__(self, size, landmark_count):
         """Intializes environment state"""
